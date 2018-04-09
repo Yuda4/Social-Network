@@ -32,8 +32,11 @@ class Member{
     int numFollowing() { return following.size();}
 
     void follow(Member &obj) {
+        if(obj.get_ID() != this->n_ID){
         obj.add_followed(*this);
-        following.insert(pair<unsigned int, Member*>(obj.get_ID(), &obj));}
+        following.insert(pair<unsigned int, Member*>(obj.get_ID(), &obj));
+      }
+    }
 
     void unfollow(Member &obj) {
         obj.erase_followed(n_ID);
