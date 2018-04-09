@@ -13,7 +13,7 @@ void test2() {
 	shlomi.follow(avi);
 	cout << "  " << chana.numFollowers() << " " <<  chana.numFollowing() << endl; 
 	cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
-    cout << "  " << shlomi.numFollowers() << " " <<  shlomi.numFollowing() << endl;
+        cout << "  " << shlomi.numFollowers() << " " <<  shlomi.numFollowing() << endl;
 	cout << "  " << Member::count() << " members are at test 2" << endl; 
 }
 
@@ -34,21 +34,21 @@ void test1() {
 
 
 int main() { 
-/*    cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
+    cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
     cout << "  " << beni.numFollowers() << " " <<  beni.numFollowing() << endl;
     cout << "  " << chana.numFollowers() << " " <<  chana.numFollowing() << endl;
-    test1();*/
+    test1();
     avi.follow(beni);
     cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
     cout << "  " << beni.numFollowers() << " " <<  beni.numFollowing() << endl;
     avi.follow(beni);
 	cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
     cout << "  " << beni.numFollowers() << " " <<  beni.numFollowing() << endl;
-    /*cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
+    cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
     cout << "  " << beni.numFollowers() << " " <<  beni.numFollowing() << endl;
     cout << "  " << chana.numFollowers() << " " <<  chana.numFollowing() << endl;
     cout << "  " << Member::count() << " members are at main" << endl; 
     test2();
-    cout << "  " << Member::count() << " members are at main" << endl; */
+    cout << "  " << Member::count() << " members are at main" << endl; 
     
 }
