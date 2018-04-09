@@ -32,7 +32,7 @@ void test1() {
 }
 
 
-
+/*
 int main() { 
     cout << "  " << avi.numFollowers() << " " <<  avi.numFollowing() << endl;
     cout << "  " << beni.numFollowers() << " " <<  beni.numFollowing() << endl;
@@ -51,4 +51,4 @@ int main() {
     test2();
     cout << "  " << Member::count() << " members are at main" << endl; 
     
-}
+}*/
