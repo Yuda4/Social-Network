@@ -22,7 +22,6 @@ class Member{
       num_of_mem++;}
 
     ~Member(){  // Destructor
-      map<unsigned int, Member*>::iterator it;
       for ( unsigned i = 0; i < following.bucket_count(); ++i){
         for ( auto it = following.cbegin(i); it!= following.cend(i); ++it ){
           unfollow(*(it-> second));
