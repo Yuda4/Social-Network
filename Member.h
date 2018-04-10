@@ -21,19 +21,19 @@ class Member{
       n_ID = number_id++;
       num_of_mem++;}
 
-    ~Member(){  // Destructor
+    ~Member(){  // Destructor -  releasing resources
       map<unsigned int, Member*>::iterator it;
-      for ( it = following.begin(); it != following.end(); it++)
-        unfollow(*(it-> second));
+      for ( it = following.begin(); it != following.end(); it++)  
+	      unfollow(*(it-> second));
 
       for ( it = followed_by.begin(); it != followed_by.end(); it++)
 	      (it-> second)-> erase_following(n_ID);
 
       num_of_mem--; }
 
-    unsigned int get_ID() {return n_ID;} // gives my id number
-    int numFollowers() { return followed_by.size();}  // gives map's size of how many members are following me
-    int numFollowing() { return following.size();}  // gives map's size of how many members i'm following after
+    unsigned int get_ID() { return n_ID; } // gives my id number
+    int numFollowers() { return followed_by.size(); }  // gives map's size of how many members are following me
+    int numFollowing() { return following.size(); }  // gives map's size of how many members i'm following after
 
     void follow(Member &obj) {  // follow after another member
       if(obj.get_ID() != this->n_ID ){
@@ -47,6 +47,6 @@ class Member{
         following.erase(obj.get_ID());
     }
 
-    static unsigned int count(void){ return num_of_mem;}  // function gives how many members are active
+    static unsigned int count(){ return num_of_mem;}  // function gives how many members are active
     
 };
