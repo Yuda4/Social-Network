@@ -23,12 +23,18 @@ class Member{
 
     ~Member(){  // Destructor
       map<unsigned int, Member*>::iterator it;
-      for ( it = following.begin(); it != following.end(); it++)
-        unfollow(*(it-> second));
-
-      for ( it = followed_by.begin(); it != followed_by.end(); it++)
-	      (it-> second)-> erase_following(n_ID);
-
+      for ( unsigned i = 0; i < following.bucket_count(); ++i){
+        for ( auto it = following.cbegin(i); it!= following.cend(i); ++it ){
+          unfollow(*(it-> second));
+        }
+      }
+      
+      for ( unsigned i = 0; i < followed_by.bucket_count(); ++i){
+        for ( auto it = followed_by.cbegin(i); it!= followed_by.cend(i); ++it ){
+          (it-> second)-> erase_following(n_ID);
+        }
+      }
+	    
       num_of_mem--; }
 
     unsigned int get_ID() {return n_ID;} // gives my id number
