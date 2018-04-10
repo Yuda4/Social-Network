@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <iterator>
 using namespace std;
 
@@ -9,8 +9,8 @@ class Member{
 
     private:
     unsigned int n_ID;
-    map <unsigned int, Member*> followed_by; // map for who is following me
-    map <unsigned int, Member*> following;// map for who i'm following after
+    unordered_map <unsigned int, Member*> followed_by; // map for who is following me
+    unordered_map <unsigned int, Member*> following;// map for who i'm following after
 
     void add_followed(Member &obj){ followed_by.insert(pair<unsigned int, Member*>(obj.get_ID(), &obj)); } // adding me to member's map of followed_by
     void erase_followed(unsigned int id){ followed_by.erase(id); }  // helping function - erasing me of member's map of followed_by
@@ -22,14 +22,14 @@ class Member{
       num_of_mem++;}
 
     ~Member(){  // Destructor
-      for ( unsigned i = 0; i < following.size(); ++i){
-        for ( auto it = following.begin(i); it!= following.end(i); ++it ){
+      for ( unsigned i = 0; i < following.bucket_count(); ++i){
+        for ( auto it = following.cbegin(i); it!= following.cend(i); ++it ){
           unfollow(*(it-> second));
         }
       }
       
-      for ( unsigned i = 0; i < followed_by.size(); ++i){
-        for ( auto it = followed_by.begin(i); it!= followed_by.end(i); ++it ){
+      for ( unsigned i = 0; i < followed_by.bucket_count(); ++i){
+        for ( auto it = followed_by.cbegin(i); it!= followed_by.cend(i); ++it ){
           (it-> second)-> erase_following(n_ID);
         }
       }
