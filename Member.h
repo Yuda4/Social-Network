@@ -22,14 +22,14 @@ class Member{
       num_of_mem++;}
 
     ~Member(){  // Destructor
-      for ( unsigned i = 0; i < following.bucket_count(); ++i){
-        for ( auto it = following.cbegin(i); it!= following.cend(i); ++it ){
+      for ( unsigned i = 0; i < following.size(); ++i){
+        for ( auto it = following.begin(i); it!= following.end(i); ++it ){
           unfollow(*(it-> second));
         }
       }
       
-      for ( unsigned i = 0; i < followed_by.bucket_count(); ++i){
-        for ( auto it = followed_by.cbegin(i); it!= followed_by.cend(i); ++it ){
+      for ( unsigned i = 0; i < followed_by.size(); ++i){
+        for ( auto it = followed_by.begin(i); it!= followed_by.end(i); ++it ){
           (it-> second)-> erase_following(n_ID);
         }
       }
